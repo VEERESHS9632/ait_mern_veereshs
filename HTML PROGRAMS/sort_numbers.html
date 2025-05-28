@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sorter with Colors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid darkred;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px 5px;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkorange;
+        }
+
+        .output-group {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .number-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .number {
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="numbers">Enter Numbers (space separated):</label>
+            <input type="text" id="numbers">
+        </div>
+        <button onclick="sortNumbers()">Sort Numbers</button>
+        <button onclick="resetFields()">Reset</button>
+        <div class="output-group">
+            <h3>Sorted Numbers:</h3>
+            <div id="sortedNumbers" class="number-list"></div>
+        </div>
+    </div>
+
+    <script>
+        function sortNumbers() {
+            let input = document.getElementById("numbers").value;
+            let numbers = input.split(" ").map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
+
+            if (numbers.length === 0) {
+                document.getElementById("sortedNumbers").innerHTML = "<p style='color:red;'>Invalid input</p>";
+                return;
+            }
+
+            numbers.sort((a, b) => a - b);
+
+            let colors = ["red", "blue", "green", "purple", "orange", "brown", "pink", "cyan"];
+            let outputHTML = numbers.map((num, index) => 
+                `<div class="number" style="background-color:${colors[index % colors.length]};">${num}</div>`
+            ).join("");
+
+            document.getElementById("sortedNumbers").innerHTML = outputHTML;
+        }
+
+        function resetFields() {
+            document.getElementById("numbers").value = "";
+            document.getElementById("sortedNumbers").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
