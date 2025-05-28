@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square & Cube Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid darkred;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="inputNumber">Input Number:</label>
+            <input type="text" id="inputNumber">
+        </div>
+        <div class="input-group">
+            <label for="output">Result:</label>
+            <input type="text" id="output" readonly>
+        </div>
+        <div class="button-group">
+            <button onclick="findSquare()">Find Square</button>
+            <button onclick="findCube()">Find Cube</button>
+        </div>
+    </div>
+
+    <script>
+        function findSquare() {
+            let number = parseFloat(document.getElementById("inputNumber").value);
+            
+            if (isNaN(number)) {
+                document.getElementById("output").value = "Invalid input";
+                return;
+            }
+
+            document.getElementById("output").value = number * number;
+        }
+
+        function findCube() {
+            let number = parseFloat(document.getElementById("inputNumber").value);
+            
+            if (isNaN(number)) {
+                document.getElementById("output").value = "Invalid input";
+                return;
+            }
+
+            document.getElementById("output").value = number * number * number;
+        }
+    </script>
+</body>
+
+</html>
