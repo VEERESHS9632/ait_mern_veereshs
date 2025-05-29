@@ -1,0 +1,25 @@
+{
+  "name": "ait_mern_veereshs",
+  "version": "1.0.0",
+  "description": "THE WORKSHOP OF MAY 2025",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/VEERESHS9632/ait_mern_veereshs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VEERESHS9632/ait_mern_veereshs/issues"
+  },
+  "homepage": "https://github.com/VEERESHS9632/ait_mern_veereshs#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1"
+  }
+}
